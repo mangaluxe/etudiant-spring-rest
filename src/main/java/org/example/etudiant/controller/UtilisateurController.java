@@ -14,6 +14,7 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("api/utilisateur/")
 public class UtilisateurController {
 
     // ========== Propriétés ==========
@@ -31,7 +32,6 @@ public class UtilisateurController {
     // ========== Méthodes ==========
 
     @GetMapping
-    @RequestMapping("api/utilisateur/")
     public ResponseEntity<List<UtilisateurDtoSend>> getData() {
         List<Utilisateur> utilisateurs = utilisateurService.getAll();
         List<UtilisateurDtoSend> utilisateurDtoSends = new ArrayList<>();
