@@ -31,6 +31,7 @@ public class UtilisateurController {
     // ========== Méthodes ==========
 
     @GetMapping
+    @RequestMapping("api/utilisateur/")
     public ResponseEntity<List<UtilisateurDtoSend>> getData() {
         List<Utilisateur> utilisateurs = utilisateurService.getAll();
         List<UtilisateurDtoSend> utilisateurDtoSends = new ArrayList<>();
@@ -42,7 +43,7 @@ public class UtilisateurController {
         return ResponseEntity.ok(utilisateurDtoSends);
     }
 
-    @GetMapping("api/utilisateur/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<UtilisateurDtoSend> getDataById(@PathVariable int id) {
         Utilisateur utilisateur = utilisateurService.getById(id);
 
